@@ -1,0 +1,5 @@
+
+ctMode>
+    <App />
+  </React.StrictMode>
+);
