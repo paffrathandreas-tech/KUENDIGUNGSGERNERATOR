@@ -3,9 +3,9 @@ import { useState } from "react";
 export default function App() {
   const [name, setName] = useState("");
   const [customerId, setCustomerId] = useState("");
-  const [provider, setProvider] = useState("Vodafone");
   const [startDate, setStartDate] = useState("");
   const [duration, setDuration] = useState(12);
+  const [provider, setProvider] = useState("Vodafone");
 
   const providers = {
     Vodafone: "Vodafone GmbH, Kundenservice, 40875 Ratingen",
@@ -29,6 +29,9 @@ export default function App() {
 
 hiermit kündige ich meinen Vertrag fristgerecht zum nächstmöglichen Zeitpunkt.
 
+Anbieter:
+${providers[provider]}
+
 Kundennummer: ${customerId}
 
 Bitte bestätigen Sie mir die Kündigung schriftlich.
@@ -41,14 +44,15 @@ ${name}`;
     <div style={{ maxWidth: "600px", margin: "auto", padding: "20px" }}>
       <h1>Kündigungsgenerator</h1>
 
-      <h3>Persönliche Daten</h3>
+      <h3>Name</h3>
       <input
-        placeholder="Name"
+        placeholder="Dein Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
         style={{ width: "100%", marginBottom: "10px" }}
       />
 
+      <h3>Kundennummer</h3>
       <input
         placeholder="Kundennummer"
         value={customerId}
@@ -56,7 +60,7 @@ ${name}`;
         style={{ width: "100%", marginBottom: "10px" }}
       />
 
-      <h3>Vertrag</h3>
+      <h3>Anbieter</h3>
       <select
         value={provider}
         onChange={(e) => setProvider(e.target.value)}
@@ -67,6 +71,7 @@ ${name}`;
         <option>McFIT</option>
       </select>
 
+      <h3>Vertragsbeginn</h3>
       <input
         type="date"
         value={startDate}
@@ -74,6 +79,7 @@ ${name}`;
         style={{ width: "100%", marginBottom: "10px" }}
       />
 
+      <h3>Laufzeit (Monate)</h3>
       <input
         type="number"
         value={duration}
@@ -82,10 +88,10 @@ ${name}`;
       />
 
       <p>
-        👉 Kündigungsfrist: <b>{calculateDeadline()}</b>
+        👉 Kündigung spätestens am: <b>{calculateDeadline()}</b>
       </p>
 
-      <h3>Ergebnis</h3>
+      <h3>Kündigungstext</h3>
       <textarea
         value={generateText()}
         readOnly
@@ -96,7 +102,7 @@ ${name}`;
         onClick={() => navigator.clipboard.writeText(generateText())}
         style={{ marginTop: "10px" }}
       >
-        Kopieren
+        Text kopieren
       </button>
     </div>
   );
