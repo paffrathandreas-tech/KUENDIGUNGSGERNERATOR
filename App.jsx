@@ -158,7 +158,7 @@ ${name}`;
           </button>
 
           <div style={{ marginTop: "20px", textAlign: "center" }}>
-            
+            <a
               href="https://www.check24.net/"
               target="_blank"
               rel="noopener noreferrer"
@@ -172,4 +172,5 @@ ${name}`;
     </div>
   );
 }
+
 
