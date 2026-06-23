@@ -13,7 +13,7 @@ export default function App() {
     Internet: ["Vodafone DSL", "Telekom DSL", "1&1"],
     Fitness: ["McFIT", "FitX", "CleverFit"]
   };
-
+  
   const providerAddresses = {
     Vodafone: "Vodafone GmbH",
     Telekom: "Telekom Deutschland GmbH",
