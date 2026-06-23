@@ -113,6 +113,7 @@ name;
             type="number"
             value={duration}
             onChange={(e) => setDuration(Number(e.target.value))}
+            ``
           />
 
           <p>
