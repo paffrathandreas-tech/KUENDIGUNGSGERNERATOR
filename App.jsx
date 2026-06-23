@@ -15,6 +15,7 @@ export default function App() {
     Streaming: ["Netflix", "Amazon Prime", "Disney+"]
   };
 
+  
   const providerAddresses = {
     Vodafone: "Vodafone GmbH",
     Telekom: "Telekom Deutschland GmbH",
