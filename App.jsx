@@ -119,7 +119,9 @@ export default function App() {
           </button>
 
           <div style={{ marginTop: "20px" }}>
-            <a href="https://www.check24.net/" target="_blank" rel="noopener noreferrer        </a>
+            <a href="https://www.check24.net/" target="_blank" rel="noopener noreferrer">        
+          👉 Jetzt besseren Tarif sichern
+          </a>
           </div>
         </>
       )}
