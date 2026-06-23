@@ -39,11 +39,11 @@ export default function App() {
   const generateText = () => {
   return "Sehr geehrte Damen und Herren,\n\n" +
 "hiermit kündige ich meinen" + $ category + "-Vertrag fristgerecht zum nächstmöglichen Zeitpunkt.\n\n" +
-"Anbieter:\n"+:
+"Anbieter:\n"+: +
 ${providerAddresses[provider] || ""} + \n\n" +
 "Kundennummer: " +  ${customerId} + "\n\n" +
 "Bitte bestätigen Sie mir die Kündigung schriftlich.\n\n" + 
-"Mit freundlichen Grüßen\n"
+"Mit freundlichen Grüßen\n" +
 name;
 };
 ``
