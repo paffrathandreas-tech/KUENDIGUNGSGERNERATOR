@@ -57,3 +57,83 @@ ${name}`;
       <h1>Kündigungsgenerator</h1>
       <p>Erstelle dein Kündigungsschreiben schnell und kostenlos.</p>
 
+      <div style={{ margin: "20px 0", textAlign: "center" }}>
+        <a href="https://www.check24.net/" target="_blank" rel="noopener noreferrer">
+          👉 Jetzt Tarife vergleichen und sparen
+        </a>
+      </div>
+
+      <h2>1. Kategorie wählen</h2>
+      <select
+        value={category}
+        onChange={(e) => {
+          setCategory(e.target.value);
+          setProvider("");
+        }}
+      >
+        <option value="">Bitte wählen</option>
+        <option value="Handy">Handyvertrag</option>
+        <option value="Internet">Internetvertrag</option>
+        <option value="Fitness">Fitnessstudio</option>
+      </select>
+
+      {category && (
+        <>
+          <h2>2. Anbieter auswählen</h2>
+          <select
+            value={provider}
+            onChange={(e) => setProvider(e.target.value)}
+          >
+            <option value="">Bitte wählen</option>
+            {providerOptions[category].map((p) => (
+              <option key={p}>{p}</option>
+            ))}
+          </select>
+        </>
+      )}
+
+      {provider && (
+        <>
+          <h2>3. Deine Daten</h2>
+
+          <input
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <input
+            placeholder="Kundennummer"
+            value={customerId}
+            onChange={(e) => setCustomerId(e.target.value)}
+          />
+
+          <h3>Vertragsdaten</h3>
+
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+          />
+
+          <input
+            type="number"
+            value={duration}
+            onChange={(e) => setDuration(e.target.value)}
+          />
+
+          <p>
+            Kündigung spätestens am: <b>{calculateDeadline()}</b>
+          </p>
+
+          <h2>Kündigungstext</h2>
+
+          <textarea value={generateText()} readOnly />
+
+          <button
+            onClick={() => navigator.clipboard.writeText(generateText())}
+          >
+            Kopieren
+          </button>
+
+          <div style={{ marginTop: "20px" }}>
