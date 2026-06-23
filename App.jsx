@@ -53,7 +53,7 @@ ${name}`;
 
   return (
     <div style={{ maxWidth: "700px", margin: "auto", padding: "20px" }}>
-      
+
       <h1>Kündigungsgenerator</h1>
       <p>Erstelle dein Kündigungsschreiben schnell und kostenlos.</p>
 
@@ -108,8 +108,6 @@ ${name}`;
             onChange={(e) => setCustomerId(e.target.value)}
           />
 
-          <h3>Vertragsdaten</h3>
-
           <input
             type="date"
             value={startDate}
@@ -119,3 +117,28 @@ ${name}`;
           <input
             type="number"
             value={duration}
+            onChange={(e) => setDuration(e.target.value)}
+          />
+
+          <p>
+            Kündigung spätestens am: <b>{calculateDeadline()}</b>
+          </p>
+
+          <textarea value={generateText()} readOnly />
+
+          <button onClick={() => navigator.clipboard.writeText(generateText())}>
+            Kopieren
+          </button>
+
+          <div style={{ marginTop: "20px" }}>
+            <a href="https://www.check24.net/" target="_blank">
+              👉 Jetzt besseren Tarif sichern
+            </a>
+          </div>
+        </>
+      )}
+
+    </div>
+  );
+}
+``
