@@ -41,10 +41,18 @@ ${name}`;
   };
 
   return (
-    <div style={{ maxWidth: "600px", margin: "auto", padding: "20px" }}>
-      <h1>Kündigungsgenerator</h1>
+    <div style={{ maxWidth: "700px", margin: "auto", padding: "20px" }}>
+      
+      {/* SEO TEXT */}
+      <h1>Kündigungsgenerator kostenlos</h1>
+      <p>
+        Kündige deinen Vertrag schnell und kostenlos. Erstelle dein Kündigungsschreiben
+        für Vodafone, Telekom oder Fitnessstudio in wenigen Sekunden.
+      </p>
 
-      <h3>Name</h3>
+      {/* FORM */}
+      <h2>Deine Daten</h2>
+
       <input
         placeholder="Dein Name"
         value={name}
@@ -52,7 +60,6 @@ ${name}`;
         style={{ width: "100%", marginBottom: "10px" }}
       />
 
-      <h3>Kundennummer</h3>
       <input
         placeholder="Kundennummer"
         value={customerId}
@@ -60,7 +67,8 @@ ${name}`;
         style={{ width: "100%", marginBottom: "10px" }}
       />
 
-      <h3>Anbieter</h3>
+      <h2>Vertrag</h2>
+
       <select
         value={provider}
         onChange={(e) => setProvider(e.target.value)}
@@ -71,7 +79,6 @@ ${name}`;
         <option>McFIT</option>
       </select>
 
-      <h3>Vertragsbeginn</h3>
       <input
         type="date"
         value={startDate}
@@ -79,9 +86,9 @@ ${name}`;
         style={{ width: "100%", marginBottom: "10px" }}
       />
 
-      <h3>Laufzeit (Monate)</h3>
       <input
         type="number"
+        placeholder="Laufzeit in Monaten"
         value={duration}
         onChange={(e) => setDuration(e.target.value)}
         style={{ width: "100%", marginBottom: "10px" }}
@@ -91,7 +98,9 @@ ${name}`;
         👉 Kündigung spätestens am: <b>{calculateDeadline()}</b>
       </p>
 
-      <h3>Kündigungstext</h3>
+      {/* RESULT */}
+      <h2>Kündigungstext</h2>
+
       <textarea
         value={generateText()}
         readOnly
@@ -104,6 +113,26 @@ ${name}`;
       >
         Text kopieren
       </button>
+
+      {/* 💰 GELD VERDIENEN SECTION */}
+      <div style={{ marginTop: "40px", padding: "20px", border: "1px solid #ccc" }}>
+        <h2>💡 Spar jetzt Geld</h2>
+        <p>
+          Du hast deinen Vertrag gekündigt? Jetzt kannst du einen besseren Tarif sparen.
+        </p>
+
+        <a
+          href="https://www.check24.net/"
+          target="_blank"
+          style={{ display: "block", marginTop: "10px", color: "blue" }}
+  <div style={{ marginTop: "40px" }}>
+        <h2>Vertrag kündigen leicht gemacht</h2>
+        <p>
+          Viele Anbieter erschweren die Kündigung. Mit unserem Generator kannst du
+          dein Kündigungsschreiben einfach erstellen und sofort verwenden.
+        </p>
+      </div>
+
     </div>
   );
 }
