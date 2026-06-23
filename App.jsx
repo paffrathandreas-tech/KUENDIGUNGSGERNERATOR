@@ -57,9 +57,9 @@ ${name}`;
       <h1>Kündigungsgenerator</h1>
       <p>Erstelle dein Kündigungsschreiben schnell und kostenlos.</p>
 
-      {/* ✅ Affiliate oben FIXED */}
+      {/* ✅ SAUBERER LINK */}
       <div style={{ margin: "20px 0", textAlign: "center" }}>
-        <a href="https://www.check24.net/" target="_blank">
+        <a href="https://www.check24.net/" target="_blank" rel="noopener noreferrer">
           👉 Jetzt Tarife vergleichen und sparen
         </a>
       </div>
@@ -115,3 +115,31 @@ ${name}`;
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
+          />
+
+          <input
+            type="number"
+            value={duration}
+            onChange={(e) => setDuration(e.target.value)}
+          />
+
+          <p>
+            Kündigung spätestens am: <b>{calculateDeadline()}</b>
+          </p>
+
+          <h2>Kündigungstext</h2>
+          <textarea value={generateText()} readOnly />
+
+          <button
+            onClick={() => navigator.clipboard.writeText(generateText())}
+          >
+            Kopieren
+          </button>
+
+          {/* ✅ SAUBERER LINK */}
+          <div style={{ marginTop: "20px" }}>
+            <a href="https://www.check24.net/" target="_blank" rel="noopener noreferrer">
+              👉 Jetzt besseren Tarif sichern
+            </a>
+          </div>
+        </>
