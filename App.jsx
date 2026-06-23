@@ -17,13 +17,13 @@ export default function App() {
   const providerAddresses = {
     Vodafone: "Vodafone GmbH, Kundenservice, 40875 Ratingen",
     Telekom: "Telekom Deutschland GmbH, Bonn",
-    O2: "Telefónica Germany GmbH & Co. OHG",
-    "Vodafone DSL": "Vodafone GmbH DSL Kundenservice",
+    O2: "Telefónica Germany GmbH",
+    "Vodafone DSL": "Vodafone GmbH DSL",
     "Telekom DSL": "Telekom Deutschland GmbH",
     "1&1": "1&1 Telecom GmbH",
     McFIT: "McFIT GmbH, Berlin",
     FitX: "FitX Deutschland GmbH",
-    CleverFit: "clever fit GmbH"
+    CleverFit: "clever-fit GmbH"
   };
 
   const calculateDeadline = () => {
@@ -52,48 +52,40 @@ ${name}`;
   };
 
   return (
-    <div style={{ maxWidth: "750px", margin: "auto", padding: "20px", fontFamily: "Arial" }}>
+    <div style={{ maxWidth: "700px", margin: "auto", padding: "20px" }}>
 
       <h1>Kündigungsgenerator</h1>
-      <p>Kündige deinen Vertrag schnell und einfach online.</p>
+      <p>Erstelle dein Kündigungsschreiben schnell und kostenlos.</p>
 
-      {/* ✅ Affiliate oben */}
+      {/* ✅ Affiliate oben FIXED */}
       <div style={{ margin: "20px 0", textAlign: "center" }}>
-        <a
-          href="https://www.check24.net/"
-          target="_blank"
-          style={{ fontWeight: "bold", color: "blue" }}
-        >
-          👉 Spare jetzt bis zu 300€ – Angebote vergleichen
+        <a href="https://www.check24.net/" target="_blank">
+          👉 Jetzt Tarife vergleichen und sparen
         </a>
       </div>
 
-      {/* Kategorie */}
-      <h2>1. Was möchtest du kündigen?</h2>
+      <h2>1. Kategorie wählen</h2>
       <select
         value={category}
         onChange={(e) => {
           setCategory(e.target.value);
           setProvider("");
         }}
-        style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
       >
-        <option value="">Bitte auswählen</option>
+        <option value="">bitte wählen</option>
         <option value="Handy">Handyvertrag</option>
         <option value="Internet">Internetvertrag</option>
         <option value="Fitness">Fitnessstudio</option>
       </select>
 
-      {/* Anbieter */}
       {category && (
         <>
           <h2>2. Anbieter auswählen</h2>
           <select
             value={provider}
             onChange={(e) => setProvider(e.target.value)}
-            style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
           >
-            <option value="">Anbieter wählen</option>
+            <option value="">bitte wählen</option>
             {providerOptions[category].map((p) => (
               <option key={p}>{p}</option>
             ))}
@@ -101,7 +93,6 @@ ${name}`;
         </>
       )}
 
-      {/* Formular */}
       {provider && (
         <>
           <h2>3. Deine Daten</h2>
@@ -110,78 +101,17 @@ ${name}`;
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
           />
 
           <input
             placeholder="Kundennummer"
             value={customerId}
             onChange={(e) => setCustomerId(e.target.value)}
-            style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
           />
 
-          <h3>Vertrag</h3>
+          <h3>Vertragsdaten</h3>
 
           <input
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
-            style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
-          />
-
-          <input
-            type="number"
-            placeholder="Laufzeit (Monate)"
-            value={duration}
-            onChange={(e) => setDuration(e.target.value)}
-            style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
-          />
-
-          <p>
-            👉 Kündigung spätestens am: <b>{calculateDeadline()}</b>
-          </p>
-
-          <h2>Kündigungsschreiben</h2>
-
-          <textarea
-            value={generateText()}
-            readOnly
-            style={{ width: "100%", height: "200px", padding: "10px" }}
-          />
-
-          <button
-            onClick={() => navigator.clipboard.writeText(generateText())}
-            style={{ marginTop: "10px", padding: "10px" }}
-          >
-            Text kopieren
-          </button>
-
-          {/* ✅ Affiliate nach Aktion */}
-          <div style={{
-            marginTop: "25px",
-            padding: "20px",
-            background: "#f5f5f5",
-            borderRadius: "10px"
-          }}>
-            <h3>✅ Kündigung fertig!</h3>
-            <p>Jetzt kannst du zu einem günstigeren Anbieter wechseln.</p>
-
-            <a
-              href="https://www.check24.net/"
-              target="_blank"
-              style={{
-                background: "#ffcc00",
-                padding: "12px",
-                fontWeight: "bold",
-                display: "inline-block",
-                borderRadius: "8px"
-              }}
-           h2>
-        <p>McFIT, FitX oder CleverFit schnell kündigen.</p>
-      </div>
-
-      {/* Affiliate unten */}
-      <div style={{ marginTop: "40px", textAlign: "center" }}>
-        <a
-          href="https://www.check24.net/"
-          target="_blank"
