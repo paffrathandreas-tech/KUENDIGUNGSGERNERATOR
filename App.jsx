@@ -119,21 +119,3 @@ ${name}`;
           <input
             type="number"
             value={duration}
-            onChange={(e) => setDuration(e.target.value)}
-          />
-
-          <p>
-            Kündigung spätestens am: <b>{calculateDeadline()}</b>
-          </p>
-
-          <h2>Kündigungstext</h2>
-
-          <textarea value={generateText()} readOnly />
-
-          <button
-            onClick={() => navigator.clipboard.writeText(generateText())}
-          >
-            Kopieren
-          </button>
-
-          <div style={{ marginTop: "20px" }}>
