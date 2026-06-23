@@ -40,7 +40,7 @@ export default function App() {
     return `Sehr geehrte Damen und Herren,
 
 hiermit kündige ich meinen ${category}-Vertrag fristgerecht zum nächstmöglichen Zeitpunkt.
-
+  
 Anbieter:
 ${providerAddresses[provider] || ""}
 
@@ -50,14 +50,13 @@ Bitte bestätigen Sie mir die Kündigung schriftlich.
 
 Mit freundlichen Grüßen
 ${name}`;
-  };
-
+};
+´`
   return (
     <div style={{ maxWidth: "700px", margin: "auto", padding: "20px" }}>
 
       <h1>Kündigungsgenerator</h1>
       <p>Erstelle dein Kündigungsschreiben schnell und kostenlos.</p>
-
       <div style={{ margin: "20px 0", textAlign: "center" }}>
         <a href="https://www.check24.net/" target="_blank" rel="noopener noreferrer">
           👉 Jetzt Tarife vergleichen und sparen
