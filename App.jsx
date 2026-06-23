@@ -80,7 +80,7 @@ name;
             onChange={(e) => setProvider(e.target.value)}
           >
             <option value="">Bitte wählen</option>
-            {providerOptions[category].map((p) => (
+            {(providerOptions[category] || []).map((p) => (
               <option key={p}>{p}</option>
             ))}
           </select>
@@ -112,7 +112,7 @@ name;
           <input
             type="number"
             value={duration}
-            onChange={(e) => setDuration(e.target.value)}
+            onChange={(e) => setDuration(Number(e.target.value))}
           />
 
           <p>
