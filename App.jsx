@@ -38,7 +38,7 @@ export default function App() {
 
   const generateText = () => {
   return "Sehr geehrte Damen und Herren,\n\n" +
-"hiermit kündige ich meinen" + $ category + "-Vertrag fristgerecht zum nächstmöglichen Zeitpunkt.\n\n" +
+"hiermit kündige ich meinen" + (category || "") + "-Vertrag fristgerecht zum nächstmöglichen Zeitpunkt.\n\n" +
 "Anbieter:\n"+: +
 ${providerAddresses[provider] || ""} + \n\n" +
 "Kundennummer: " +  ${customerId} + "\n\n" +
