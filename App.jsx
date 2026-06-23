@@ -1,4 +1,3 @@
-```jsx
 import { useState } from "react";
 
 export default function App() {
@@ -16,15 +15,15 @@ export default function App() {
   };
 
   const providerAddresses = {
-    Vodafone: "Vodafone GmbH, Kundenservice, 40875 Ratingen",
-    Telekom: "Telekom Deutschland GmbH, Bonn",
+    Vodafone: "Vodafone GmbH",
+    Telekom: "Telekom Deutschland GmbH",
     O2: "Telefónica Germany GmbH",
-    "Vodafone DSL": "Vodafone GmbH DSL",
-    "Telekom DSL": "Telekom Deutschland GmbH",
+    "Vodafone DSL": "Vodafone DSL",
+    "Telekom DSL": "Telekom DSL",
     "1&1": "1&1 Telecom GmbH",
-    McFIT: "McFIT GmbH, Berlin",
+    McFIT: "McFIT GmbH",
     FitX: "FitX Deutschland GmbH",
-    CleverFit: "clever-fit GmbH"
+    CleverFit: "CleverFit"
   };
 
   const calculateDeadline = () => {
@@ -37,28 +36,22 @@ export default function App() {
   };
 
   const generateText = () => {
-  return "Sehr geehrte Damen und Herren,\n\n" +
-"hiermit kündige ich meinen" + (category || "") + "-Vertrag fristgerecht zum nächstmöglichen Zeitpunkt.\n\n" +
-"Anbieter:\n"+: +
-${providerAddresses[provider] || ""} + \n\n" +
-"Kundennummer: " +  ${customerId} + "\n\n" +
-"Bitte bestätigen Sie mir die Kündigung schriftlich.\n\n" + 
-"Mit freundlichen Grüßen\n" +
-name;
-};
-``
+    return "Sehr geehrte Damen und Herren,\n\n" +
+      "hiermit kündige ich meinen " + (category || "") + "-Vertrag fristgerecht.\n\n" +
+      "Anbieter:\n" +
+      (providerAddresses[provider] || "") + "\n\n" +
+      "Kundennummer: " + customerId + "\n\n" +
+      "Bitte bestätigen Sie mir die Kündigung.\n\n" +
+      "Mit freundlichen Grüßen\n" +
+      name;
+  };
+
   return (
     <div style={{ maxWidth: "700px", margin: "auto", padding: "20px" }}>
 
       <h1>Kündigungsgenerator</h1>
-      <p>Erstelle dein Kündigungsschreiben schnell und kostenlos.</p>
-      <div style={{ margin: "20px 0", textAlign: "center" }}>
-        <a href="https://www.check24.net/" target="_blank" rel="noopener noreferrer">
-          👉 Jetzt Tarife vergleichen und sparen
-        </a>
-      </div>
 
-      <h2>1. Kategorie wählen</h2>
+      <h2>1. Kategorie</h2>
       <select
         value={category}
         onChange={(e) => {
@@ -67,14 +60,14 @@ name;
         }}
       >
         <option value="">Bitte wählen</option>
-        <option value="Handy">Handyvertrag</option>
-        <option value="Internet">Internetvertrag</option>
-        <option value="Fitness">Fitnessstudio</option>
+        <option value="Handy">Handy</option>
+        <option value="Internet">Internet</option>
+        <option value="Fitness">Fitness</option>
       </select>
 
       {category && (
         <>
-          <h2>2. Anbieter auswählen</h2>
+          <h2>2. Anbieter</h2>
           <select
             value={provider}
             onChange={(e) => setProvider(e.target.value)}
@@ -89,7 +82,7 @@ name;
 
       {provider && (
         <>
-          <h2>3. Deine Daten</h2>
+          <h2>3. Daten</h2>
 
           <input
             placeholder="Name"
@@ -113,7 +106,6 @@ name;
             type="number"
             value={duration}
             onChange={(e) => setDuration(Number(e.target.value))}
-            ``
           />
 
           <p>
@@ -127,12 +119,11 @@ name;
           </button>
 
           <div style={{ marginTop: "20px" }}>
-            <a href="https://www.check24.net/" target="_blank" rel="noopener noreferrer">
-              👉 Jetzt besseren Tarif sichern
-            </a>
+            <a href="https://www.check24.net/" target="_blank" rel="noopener noreferrer        </a>
           </div>
         </>
       )}
-
+      
+    </div>
   );
 }
